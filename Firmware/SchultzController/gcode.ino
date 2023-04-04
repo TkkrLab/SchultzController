@@ -466,6 +466,25 @@ void processCommand(String cmdBuf) {
       break;
     }
 
+    case MCODE_SET_PITCH: {
+      int8_t signedFeederNo = (int)parseParameter(cmdBuf, 'N',-1);
+      int8_t pitch = (int)parseParameter(cmdBuf, 'V',-1);
+
+      //check for presence of FeederNo
+      if(!validFeederNo(signedFeederNo,1)) {
+        sendAnswer(1,"feederNo missing or invalid");
+        break;
+      }
+
+      //send set pitch command
+      if (!feeders[signedFeederNo].setPitch(pitch)) {
+        sendAnswer(1,"Unable to set pitch");
+      } else {
+        sendAnswer(0,"Pitch set");
+      }
+      break;
+    }
+
 		case MCODE_GET_FIRMWARE_INFO: {
 			int8_t signedFeederNo = (int)parseParameter(cmdBuf, 'N',-1);
 

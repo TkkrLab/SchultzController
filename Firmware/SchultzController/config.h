@@ -1,6 +1,5 @@
 #ifndef _CONFIG_h
-#define _CONFIG_h
-#include "arduino.h"
+#define _CONFIG_h"
 
 //#define BOARD96PIN
 #define BOARD4PIN
@@ -71,6 +70,7 @@
 #define MCODE_GET_RESET_COUNT 607
 #define MCODE_GET_PITCH 608
 #define MCODE_TOGGLE_PITCH 628
+#define MCODE_SET_PITCH 629
 #define MCODE_GET_FEEDER_ID 610
 #define MCODE_SET_FEEDER_ID 640
 #define MCODE_READ_EEPROM 630
